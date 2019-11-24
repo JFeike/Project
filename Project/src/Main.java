@@ -7,6 +7,6 @@ public class Main {
 		new InputHandler();
 		new Graphic();
 		new PlayerMovement();
-		new Collisions();
+		new Kollisionen();
 	}
 }
