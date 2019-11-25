@@ -77,10 +77,10 @@ public class GraphicFrame extends JPanel implements ActionListener {
 
     private void loadImages() {
 
-        ImageIcon iia = new ImageIcon("Project/src/resources/speech.png");
+        ImageIcon iia = new ImageIcon("src/resources/speech.png");
         quest = iia.getImage();
         
-        ImageIcon iih = new ImageIcon("Project/src/resources/alien.png");
+        ImageIcon iih = new ImageIcon("src/resources/alien.png");
         player = iih.getImage();
     }
 
