@@ -1,6 +1,9 @@
 
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +19,7 @@ public class Variables {
 	static BufferedImage player;
 	static BufferedImage key;
 	static BufferedImage wall;
+	static BufferedImage background;
 	static int playerX = 50;
 	static int playerY = 50;
 	static int key1X = 600;
@@ -29,16 +33,14 @@ public class Variables {
 	static int playerSpeed = 10;
 	static JLabel keyamount;
 	static boolean moveup = false, movedown= false, moveleft= false, moveright= false;
-	
-	
-	
+
 	
 	public Variables() {
 		
 		try {
-			player = ImageIO.read(new File("material/player.png"));
-			key = ImageIO.read(new File("material/key.png"));
-			wall = ImageIO.read(new File("material/wall.png"));
+			player = ImageIO.read(new File("Project/src/material/alien.png"));
+			key = ImageIO.read(new File("Project/src/material/key.png"));
+			wall = ImageIO.read(new File("Project/src/material/wall.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Bild nicht geladen!!!!");
