@@ -23,18 +23,13 @@ public class Graphic extends JLabel {
 		g.drawImage(Variables.key, Variables.key2X, Variables.key2Y, null);
 		g.drawImage(Variables.wall, Variables.wall1X, Variables.wall1Y, null);
 		g.drawImage(Variables.player, Variables.playerX, Variables.playerY, null);
+		g.drawImage(Variables.enemy,  Variables.enemyX, Variables.enemyY, null);
 		repaint();
 		
 	}
 	
+		
 
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

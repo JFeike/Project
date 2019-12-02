@@ -14,10 +14,13 @@ public class Kollisionen {
 			@Override
 			public void run() {
 
+					boolean movement = true;
 					Rectangle player = new Rectangle(Variables.playerX, Variables.playerY, Variables.player.getWidth(), Variables.player.getHeight());
 					Rectangle key = new Rectangle(Variables.key1X, Variables.key1Y, Variables.key.getWidth(), Variables.key.getHeight());
 					Rectangle key2 = new Rectangle(Variables.key2X, Variables.key2Y, Variables.key.getWidth(), Variables.key.getHeight());
 					Rectangle wall1 = new Rectangle(Variables.wall1X, Variables.wall1Y, Variables.wall.getWidth(), Variables.wall.getHeight());
+					
+					Rectangle enemy = new Rectangle(Variables.enemyX, Variables.enemyY, Variables.enemy.getWidth(), Variables.enemy.getHeight());
 					
 						if(player.intersects(key)) {
 							Variables.keycount++;
@@ -34,8 +37,10 @@ public class Kollisionen {
 							Variables.playerX = 50;
 							Variables.playerY = 50;
 							
-							
-							
+							while(movement == true) {
+								Variables.enemyX += Math.random() * 10;
+								Variables.enemyY += Math.random() * 10;
+							}	
 							
 						}
 			}
