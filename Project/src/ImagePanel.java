@@ -45,6 +45,9 @@ public class ImagePanel extends JPanel {
         for (int y = 0; y < screenSize.getWidth(); y += tileHeight) {
             for (int x = 0; x < screenSize.getHeight(); x += tileWidth) {
                 g2d.drawImage(tile, x * 200 - scrollX, y * 200 - scrollY, this);
+        		g2d.drawImage(Variables.key, (int) (Variables.key1X - scrollX * 0.2), (int) (Variables.key1Y - scrollY * 0.2), null);
+        		g2d.drawImage(Variables.key, (int) (Variables.key2X - scrollX * 0.2), (int) (Variables.key2Y - scrollY * 0.2), null);
+                
             }
         }
         g2d.dispose();
