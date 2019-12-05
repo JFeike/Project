@@ -1,5 +1,3 @@
-
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -14,23 +12,23 @@ public class PlayerMovement {
 			@Override
 			public void run() {
 				
-				if(Variables.moveup == true && Variables.playerY >= 10){
-				     Variables.playerY -= Variables.playerSpeed;
-				     Variables.moveup = false;
+				if(Var.moveup == true && Var.playerLocY >= 10){
+				     Var.playerLocY -= Var.playerSpeed;
+				     Var.moveup = false;
 				     
-				    }else if(Variables.movedown == true &&  Variables.playerY <= 790){
-				     Variables.playerY += Variables.playerSpeed;
-				     Variables.movedown = false;
+				    }else if(Var.movedown == true &&  Var.playerLocY <= 790){
+				     Var.playerLocY += Var.playerSpeed;
+				     Var.movedown = false;
 				    }
 				
 				
-				if(Variables.moveleft == true && Variables.playerX >= 10){
-				     Variables.playerX -= Variables.playerSpeed;
-				     Variables.moveleft = false;
+				if(Var.moveleft == true && Var.playerLocX >= 10){
+				     Var.playerLocX -= Var.playerSpeed;
+				     Var.moveleft = false;
 				     
-				    }else if(Variables.moveright == true &&  Variables.playerX <= 1190){
-				     Variables.playerX += Variables.playerSpeed;
-				     Variables.moveright = false;
+				    }else if(Var.moveright == true &&  Var.playerLocX <= 1190){
+				     Var.playerLocX += Var.playerSpeed;
+				     Var.moveright = false;
 				    }
 			}
 			
@@ -39,3 +37,4 @@ public class PlayerMovement {
 	}
 
 }
+	

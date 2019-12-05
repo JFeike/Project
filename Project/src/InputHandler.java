@@ -1,25 +1,54 @@
-
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import javax.swing.JLabel;
+public class InputHandler implements MouseListener, KeyListener {
 
-public class InputHandler implements KeyListener {
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		Var.MouseLocX = e.getX();
+		Var.MouseLocY = e.getY();
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_W) {
-			Variables.moveup = true;
+			Var.moveup = true;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_S) {
-			Variables.movedown = true;
+			Var.movedown = true;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_A) {
-			Variables.moveleft = true;
+			Var.moveleft = true;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_D) {
-			Variables.moveright = true;
+			Var.moveright = true;
 		}
 		
 	}
@@ -27,25 +56,24 @@ public class InputHandler implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_W) {
-			Variables.moveup = false;
+			Var.moveup = false;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_S) {
-			Variables.movedown = false;
+			Var.movedown = false;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_A) {
-			Variables.moveleft = false;
+			Var.moveleft = false;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_D) {
-			Variables.moveright = false;
+			Var.moveright = false;
 		}
-
 		
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
-
-
 
 }
