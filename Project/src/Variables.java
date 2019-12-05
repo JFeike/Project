@@ -16,13 +16,13 @@ public class Variables {
 	static BufferedImage player;
 	static BufferedImage key;
 	static BufferedImage wall;
-	static int playerX = 50;
-	static int playerY = 50;
+	static int playerX = 300;
+	static int playerY = 300;
 	static int key1X = 600;
 	static int key1Y = 600;
 	static int key2X = 900;
 	static int key2Y = 200;
-	static int wall1X = 450;
+	static int wall1X = 400;
 	static int wall1Y = 200;
 	static int keycount = 0;
 	static boolean keycol = false;
