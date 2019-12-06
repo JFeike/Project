@@ -55,7 +55,7 @@ public class InputHandler implements MouseListener, KeyListener, ActionListener 
 			Var.moveright = true;
 		}
 		if(e.getKeyCode()==KeyEvent.VK_ESCAPE) {
-			Gui.secondFrame();
+			System.exit(0);
 		}
 		
 	}
@@ -84,16 +84,7 @@ public class InputHandler implements MouseListener, KeyListener, ActionListener 
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == Var.jb1) {
-			Var.sf.dispose();
-				
-		}
-		if(e.getSource() == Var.jb2) {
-			System.exit(0);
-			
-		}
-		
+	public void actionPerformed(ActionEvent arg0) {
 	}
 
 }

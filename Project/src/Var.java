@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 public class Var {
 	
 	static JFrame jf = new JFrame();
-	static JFrame sf = new JFrame();
 	static JButton jb1 = new JButton("Spiel fortsetzten");
 	static JButton jb2 = new JButton("Spiel beenden");
 	static BufferedImage player;
