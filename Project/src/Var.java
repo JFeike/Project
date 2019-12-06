@@ -2,11 +2,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Var {
 	
 	static JFrame jf = new JFrame();
+	static JFrame sf = new JFrame();
+	static JButton jb1 = new JButton("Spiel fortsetzten");
+	static JButton jb2 = new JButton("Spiel beenden");
 	static BufferedImage player;
 	static int playerLocX = 0;
 	static int playerLocY = 0;
