@@ -7,9 +7,11 @@ public class InputHandler implements MouseListener, KeyListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		if(e.getButton() == MouseEvent.BUTTON1) {
 		Var.MouseLocX = e.getX();
 		Var.MouseLocY = e.getY();
-		
+
+		}
 	}
 
 	@Override
@@ -49,6 +51,9 @@ public class InputHandler implements MouseListener, KeyListener {
 		}
 		if(e.getKeyCode()==KeyEvent.VK_D) {
 			Var.moveright = true;
+		}
+		if(e.getKeyCode()==KeyEvent.VK_ESCAPE) {
+			System.exit(0);
 		}
 		
 	}
