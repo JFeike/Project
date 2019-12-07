@@ -14,11 +14,11 @@ public class mazeVertical {
 	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	 int h = (int) screenSize.getHeight();
 	 int w = (int) screenSize.getWidth();
-	 BufferedImage bush = ImageIO.read(new File("Project/src/resources/busch.png"));
+	 BufferedImage bush = ImageIO.read(new File("Project/src/resources/lab.png"));
 	 
 	  public mazeVertical(int startAt, int positionX, int distanceHeight, Graphics graphics) throws IOException {
 		  Graphics g = graphics;
-		  for (int i = startAt; i < (h-distanceHeight); i += 47) {
+		  for (int i = startAt; i < (h-distanceHeight); i += 30) {
 			  	Wall wall = new Wall(bush, positionX, i); 
 				wall.draw(g); }
 	  }

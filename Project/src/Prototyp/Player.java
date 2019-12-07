@@ -1,7 +1,9 @@
 package Prototyp;
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.Shape;
+import java.awt.image.BufferedImage;
 
 public class Player extends A_GameObject
 {
@@ -10,9 +12,11 @@ public class Player extends A_GameObject
   private double  destY;
   private boolean isMoving = false;
   
-  
   public Player(double x_, double y_) 
-  {x=x_;  y=y_; speed=200;
+  {
+	  x=x_;
+	  y=y_;
+	  speed=200;
   }
   
   public void move(double diffSeconds)
@@ -40,5 +44,6 @@ public class Player extends A_GameObject
     
     alfa = Math.atan2(dy-y, dx-x);
   }
+  
   
 }

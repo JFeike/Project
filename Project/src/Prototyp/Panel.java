@@ -71,15 +71,13 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     // VER int startAt, int positionX, int distanceHeight, Graphics graphics
     // HOR int startAt, int positionY, int distanceWidth, Graphics graphics 
     
-    mazeVertical mv1 = new mazeVertical(0, 50, 120, graphics);
-    mazeHorizontal mh1 = new mazeHorizontal(70,(h-120),120,graphics);
-    mazeVertical mv2 = new mazeVertical(60,(w-120),120,graphics);
-    mazeHorizontal mh2 = new mazeHorizontal(160,60,90,graphics);
-    mazeVertical mv3 = new mazeVertical(60,160,200,graphics);
-    mazeHorizontal mh3 = new mazeHorizontal(160,(h-230),180,graphics);
-    mazeVertical mv4 = new mazeVertical(150,(w-240),250,graphics);
-    mazeHorizontal mh4 = new mazeHorizontal(280,150,250,graphics);
-    
+    mazeHorizontal mh1 = new mazeHorizontal(0,50,1450,graphics);
+    mazeVertical mv1 = new mazeVertical(50,120,650,graphics);
+    mazeVertical mv2 = new mazeVertical(h-580,120,200,graphics);
+    mazeVertical mv3 = new mazeVertical(130,45,200,graphics);
+    mazeHorizontal mh2 = new mazeHorizontal(h-620,50,100,graphics);
+    mazeHorizontal mh3 = new mazeHorizontal(70,450,1480,graphics);
+ 
     // MAZE END
     
     // UFO
