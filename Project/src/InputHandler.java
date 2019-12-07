@@ -9,11 +9,6 @@ public class InputHandler implements MouseListener, KeyListener, ActionListener 
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(e.getButton() == MouseEvent.BUTTON1) {
-		Var.MouseLocX = e.getX();
-		Var.MouseLocY = e.getY();
-
-		}
 	}
 
 	@Override

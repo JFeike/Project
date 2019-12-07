@@ -6,5 +6,6 @@ public class Main {
 		new Graphic();
 		new PlayerMovement();
 		new InputHandler();
+		new Collisions();
 	}
 }

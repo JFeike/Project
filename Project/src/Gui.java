@@ -1,8 +1,10 @@
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Gui extends JFrame {
 	
 	Graphic g = new Graphic();
+	
 
 	public Gui() {
 		
@@ -15,6 +17,8 @@ public class Gui extends JFrame {
 		Var.jf.addMouseListener(new InputHandler());
 		Var.jf.setVisible(true);
 		Var.jf.setContentPane(g);
+		Var.jf.add(Var.keys);
+		Var.keys.setBounds(22,10,500,50);
 		g.setBounds(0,0,Var.jf.getWidth(), Var.jf.getHeight());
 		
 	}
