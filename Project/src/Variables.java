@@ -51,7 +51,7 @@ public class Variables {
 	public Variables() {
 		
 		try {
-			player = ImageIO.read(new File("Project/src/material/alien.png"));
+			player = ImageIO.read(new File("Project/src/material/player.png"));
 			key = ImageIO.read(new File("Project/src/material/key.png"));
 			wall = ImageIO.read(new File("Project/src/material/wall.png"));
 			enemy = ImageIO.read(new File("Project/src/material/enemy.png"));
