@@ -33,7 +33,7 @@ public class World
   
   public void init() throws IOException
   {
-	BufferedImage a = ImageIO.read(new File("Project/src/resources/alien.png")); 
+	BufferedImage a = ImageIO.read(new File("src/resources/alien.png")); 
 	userDot = new Player(20,20);
 	//gameObjects.set(0,userDot);
   }

@@ -12,9 +12,9 @@ import javax.imageio.ImageIO;
 public class mazeHorizontal {
 
 	 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	 int h = (int) screenSize.getHeight();
-	 int w = (int) screenSize.getWidth();
-	 BufferedImage bush = ImageIO.read(new File("Project/src/resources/lab.png"));
+	 int h = (int) 900;
+	 int w = (int) 1600;
+	 BufferedImage bush = ImageIO.read(new File("src/resources/lab.png"));
 	 
 	  public mazeHorizontal(int startAt, int positionY, int distanceWidth, Graphics graphics) throws IOException {
 		  Graphics g = graphics;  
