@@ -57,7 +57,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   
   public void draw(A_GameObject dot) throws IOException
   {
-	BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
+	BufferedImage tile = ImageIO.read(new File("Project/src/resources/Background.png"));  
 	
 	int tileHeight = 200;
 	int tileWidth = 200;
@@ -99,23 +99,27 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     mazeHorizontal mh11 = new mazeHorizontal(h-400,500,590,graphics);
     mazeHorizontal mh12 = new mazeHorizontal(h-100,400,700,graphics);
     mazeVertical mv12 = new mazeVertical(500,500,300,graphics);
+    // 
     mazeHorizontal mh13 = new mazeHorizontal(h-500,700,900,graphics);
     mazeVertical mv13 = new mazeVertical(600,670,180,graphics);
     mazeVertical mv14 = new mazeVertical(0,1100,800,graphics);
     mazeHorizontal mh15 = new mazeHorizontal(1000,100,300,graphics);
     mazeHorizontal mh14 = new mazeHorizontal(750,700,300,graphics);
     mazeVertical mv15 = new mazeVertical(600,750,200,graphics);
+    //
     mazeHorizontal mh16 = new mazeHorizontal(750,600,580,graphics);
     mazeHorizontal mh17 = new mazeHorizontal(400,780,700,graphics);
     mazeHorizontal mh18 = new mazeHorizontal(50,780,1300,graphics);
     mazeVertical mv16 = new mazeVertical(700,200,130,graphics);
     mazeVertical mv17 = new mazeVertical(785,980,30,graphics);
     mazeHorizontal mh19 = new mazeHorizontal(981,780,400,graphics);
+    
     mazeVertical mv18 = new mazeVertical(200,1100,190,graphics);
     mazeVertical mv19 = new mazeVertical(700,1300,30,graphics);
     mazeVertical mv20 = new mazeVertical(700,670,30,graphics);
     mazeVertical mv21 = new mazeVertical(200,1200,290,graphics);
     mazeHorizontal mh20 = new mazeHorizontal(1200,200,200,graphics);
+    
     mazeVertical mv22 = new mazeVertical(0,1400,800,graphics);
     mazeHorizontal mh21 = new mazeHorizontal(1400,100,50,graphics);
     mazeVertical mv23 = new mazeVertical(200,1400,100,graphics);
@@ -124,18 +128,11 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     
     
     
-    
-    
-   
-    
-    
-    
- 
     // MAZE END
     
     // UFO
-    BufferedImage ufo = ImageIO.read(new File("src/resources/ufo.png"));
-    graphics.drawImage(ufo,(w/2),(h/2),null);
+    BufferedImage ufo = ImageIO.read(new File("Project/src/resources/ufo.png"));
+    graphics.drawImage(ufo,1250,300,null);
     
 	int x = (int)dot.x-RADIUS_DOT;
 	int y = (int)dot.y-RADIUS_DOT;
