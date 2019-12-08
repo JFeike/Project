@@ -87,8 +87,8 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     mazeVertical mv6 = new mazeVertical(350,300,200,graphics);
   //  mazeVertical mv7 = new mazeVertical(500,500,300,graphics);
     mazeHorizontal mh7 = new mazeHorizontal(h-200,50,600,graphics);
-    mazeVertical mv7 = new mazeVertical(50,1000,400,graphics);
-    mazeVertical mv8 = new mazeVertical(140,900,500,graphics);
+    mazeVertical mv7 = new mazeVertical(50,1000,370,graphics);
+    mazeVertical mv8 = new mazeVertical(140,890,490,graphics);
     mazeVertical mv9 = new mazeVertical(140,800,500,graphics);
     mazeVertical mv10 = new mazeVertical(230,400,600,graphics);
     //mazeVertical mv11 = new mazeVertical(290,500,600,graphics);
@@ -96,8 +96,15 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     mazeHorizontal mh9 = new mazeHorizontal(h-500,300,900,graphics);
     mazeVertical mv11 = new mazeVertical(400,400,200,graphics);
     mazeHorizontal mh10 = new mazeHorizontal(h-500,400,900,graphics);
+    mazeHorizontal mh11 = new mazeHorizontal(h-400,500,590,graphics);
+    mazeHorizontal mh12 = new mazeHorizontal(h-100,400,700,graphics);
+    mazeVertical mv12 = new mazeVertical(500,500,300,graphics);
+    mazeHorizontal mh13 = new mazeHorizontal(h-500,700,900,graphics);
+    mazeVertical mv13 = new mazeVertical(600,700,150,graphics);
+    // v13 noch nicht fertig
     
     
+   
     
     
     
