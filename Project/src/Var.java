@@ -25,6 +25,7 @@ public class Var {
 	static BufferedImage fog;
 	static int fogLocX = 0;
 	static int fogLocY = 0;
+	static boolean fogVisible = true;
 	static int headerLocX = 0;
 	static int headerLocY = 70;
 	static int playerSpeed = 20;

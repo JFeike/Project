@@ -24,10 +24,13 @@ public class Graphic extends JPanel {
 		g2d.drawImage(Var.Bkey, Var.BkeyLocX, Var.BkeyLocY, null);
 		g2d.drawImage(Var.Bkey, 10, 10, null);
 		
-		Area a = new Area(new Rectangle(Var.fogLocX, Var.fogLocY, Var.jf.getWidth(), Var.jf.getHeight()));
-		a.subtract(new Area(new Ellipse2D.Double(Var.playerLocX-32, Var.playerLocY-32, Var.player.getWidth()*2, Var.player.getHeight()*2)));
-		g2d.fill(a);
 		
+		if(Var.fogVisible) {
+			Area a = new Area(new Rectangle(Var.fogLocX, Var.fogLocY, Var.jf.getWidth(), Var.jf.getHeight()));
+			a.subtract(new Area(new Ellipse2D.Double(Var.playerLocX-32, Var.playerLocY-32, Var.player.getWidth()*2, Var.player.getHeight()*2)));
+			g2d.fill(a);
+		}
+
 		g2d.drawImage(Var.player, Var.playerLocX, Var.playerLocY, null);
 		repaint();
 		
