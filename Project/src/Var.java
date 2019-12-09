@@ -22,6 +22,9 @@ public class Var {
 	static BufferedImage Bkey;
 	static int BkeyLocX = 100;
 	static int BkeyLocY = 1200;
+	static BufferedImage fog;
+	static int fogLocX = 0;
+	static int fogLocY = 0;
 	static int headerLocX = 0;
 	static int headerLocY = 70;
 	static int playerSpeed = 20;
@@ -36,6 +39,7 @@ public class Var {
 		wall = ImageIO.read(new File("material/wall.png"));
 		Akey = ImageIO.read(new File("material/key.png"));
 		Bkey = ImageIO.read(new File("material/key.png"));		
+		fog = ImageIO.read(new File("material/wall.png"));
 			
 		} catch (IOException e) {
 			e.printStackTrace();
