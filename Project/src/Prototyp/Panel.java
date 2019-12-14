@@ -57,7 +57,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   
   public void draw(A_GameObject dot) throws IOException
   {
-	BufferedImage tile = ImageIO.read(new File("Project/src/resources/Background.png"));  
+	BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
 	
 	int tileHeight = 200;
 	int tileWidth = 200;
@@ -131,7 +131,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     // MAZE END
     
     // UFO
-    BufferedImage ufo = ImageIO.read(new File("Project/src/resources/ufo.png"));
+    BufferedImage ufo = ImageIO.read(new File("src/resources/ufo.png"));
     graphics.drawImage(ufo,1250,300,null);
     
 	int x = (int)dot.x-RADIUS_DOT;

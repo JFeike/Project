@@ -12,7 +12,7 @@ public abstract class A_GameObject
   // move one step to direction <alfa>
   public void move(double diffSeconds)
   {  
-	 x += Math.cos(alfa)*speed*diffSeconds;
-	 y += Math.sin(alfa)*speed*diffSeconds;   	  
+	 x += Math.cos(alfa)*speed*diffSeconds/2;
+	 y += Math.sin(alfa)*speed*diffSeconds/2;   	  
   }
 }
