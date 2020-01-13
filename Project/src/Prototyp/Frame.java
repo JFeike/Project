@@ -8,7 +8,6 @@ import javax.swing.JFrame;
 
 public class Frame extends JFrame
 {
-  // ...ok...
   private static final long serialVersionUID = 2L;
   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
   int w = (int) 1600;
@@ -18,9 +17,7 @@ public class Frame extends JFrame
 
   public Frame() throws IOException
   { this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	// this.setSize(w,h);
-  	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	this.setUndecorated(true);
+	this.setSize(w,h);
 	this.setResizable(false);
 	this.setTitle("Prototyp");								
 	panel = new Panel();

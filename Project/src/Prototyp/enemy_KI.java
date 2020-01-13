@@ -1,12 +1,31 @@
 package Prototyp;
 
-class enemy_KI extends A_GameObject{
-	 private static final int HUNTING  = 1;
-	 private static final int STUCK    = 2;
-	 private static final int CLEARING = 3;
-	 
-	 private int    state;
-	 private double alfaClear;
-	 private double secondsClear;
-public enemy_KI
+public class enemy_KI extends A_GameObject
+{
+  // destination the Avatar shall move to
+  private boolean isMoving = false;
+  
+  public enemy_KI(double x_, double y_) 
+  {
+	  x=x_;
+	  y=y_;
+	  speed=200;
+  }
+  
+  public void move()
+  { 
+	// if no moving shall occur
+	if(!isMoving) return;
+
+  }
+  
+  
+  public void setDestination(double dx, double dy)
+  {
+    isMoving = true;
+    y    = dx;
+    y    = dy;
+  }
+  
+  
 }

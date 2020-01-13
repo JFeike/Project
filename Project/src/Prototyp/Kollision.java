@@ -8,6 +8,7 @@ import java.util.TimerTask;
 public class Kollision {
 	Timer kollision;
 	Player userDot;
+	enemy_KI enemyDot;
 
 	public Kollision() {
 		kollision = new Timer();
@@ -20,6 +21,9 @@ public class Kollision {
 					Rectangle maze = new Rectangle(50,0, 60,1000);
 					
 						if(((Shape) userDot).intersects(maze)) {
+							userDot.setDestination(20, 20);
+						}
+						if(((Shape) userDot)==(Shape)enemyDot) {
 							userDot.setDestination(20, 20);
 						}
 			}

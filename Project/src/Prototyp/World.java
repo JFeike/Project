@@ -26,7 +26,11 @@ public class World
   
   private UserInput userInput;
   
+  private EnemyInput enemyInput;
+  
   private Player userDot;
+  
+  private enemy_KI enemyDot;
   
   private Wall wall;
   
@@ -35,6 +39,7 @@ public class World
   {
 	BufferedImage a = ImageIO.read(new File("src/resources/alien.png")); 
 	userDot = new Player(20,20);
+	enemyDot = new enemy_KI(1200, 300);
 	//gameObjects.set(0,userDot);
   }
   
@@ -55,8 +60,16 @@ public class World
 	  { inputSystem.command(userDot, userInput);
 	  }
 	  
+	  
+	  enemyInput = inputSystem.getEnemyInput();
+	  if(enemyInput!=null)
+	  { inputSystem.enemycommand(enemyDot, enemyInput);
+	  }
+	  
 	  // Player
 	  Rectangle p = new Rectangle((int)userDot.x, (int)userDot.y, 20, 20);
+	// enemy
+	  Rectangle e = new Rectangle((int)enemyDot.x, (int)enemyDot.y, 20, 20);
 	  // Maze
 	  // Rectangle x_linksoben, y_linksoben, Breite, Höhe
 	  Rectangle maze1 = new Rectangle(0,50, 150,30);
@@ -159,7 +172,8 @@ public class World
 			p.intersects(maze42) ||
 			p.intersects(maze43) ||
 			p.intersects(maze44) ||
-			p.intersects(maze45) 
+			p.intersects(maze45) ||
+			p.intersects(e)
 		)
 		{
 			userDot.x = 20;
@@ -176,7 +190,6 @@ public class World
 	  graphicSystem.clear();
 	  graphicSystem.draw(userDot);
 	  graphicSystem.redraw();
-	  
 	  
 	}
   }

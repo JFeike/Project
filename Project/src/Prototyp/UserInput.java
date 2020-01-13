@@ -7,6 +7,8 @@ public class UserInput
               mouseMovedX, mouseMovedY, mouseButton;
   public char keyPressed;
   
+  
+  
   // ... is returned as a data set
   public UserInput(int mpx,int mpy,int mmx,int mmy,int mb,char kp)
   { mousePressedX=mpx;  mousePressedY=mpy; 
@@ -14,5 +16,9 @@ public class UserInput
     mouseButton  =mb;  
     keyPressed   =kp;
   }
+  
+  
+  
+  
 }
 

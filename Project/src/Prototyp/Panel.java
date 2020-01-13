@@ -11,7 +11,7 @@ import javax.swing.*;
 
 import Prototyp.A_GraphicSystem;
 
-public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, MouseListener
+public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, MouseListener, KeyListener
 {
   // ...ok...
   private static final long serialVersionUID = 1L;
@@ -25,6 +25,8 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   private int     mousePressedX, mousePressedY, 
                   mouseMovedX, mouseMovedY, mouseButton;
   private char    keyPressed;
+  
+  private int	keyW, keyA, keyS, keyD;
 	
   // GraphicsSystem variables
   //
@@ -143,6 +145,9 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	graphics.setColor(Color.BLACK);
 	graphics.drawOval(x,y,r,r);
 	
+	graphics.setColor(Color.red);
+	graphics.fillOval(1250, 300, r, r);
+	
   }
   
   
@@ -161,6 +166,23 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     mouseButton   = evt.getButton();  
   }  
   
+  @Override
+  public void keyPressed(KeyEvent e) {
+  	// TODO Auto-generated method stub
+	  newInput = true;
+	  if(e.getKeyCode()==KeyEvent.VK_W) {
+		  keyW = e.getKeyCode();
+	  }else if(e.getKeyCode()==KeyEvent.VK_A) {
+		  keyA = e.getKeyCode();
+	  }else if(e.getKeyCode()==KeyEvent.VK_S) {
+		  keyS = e.getKeyCode();
+	  }else if(e.getKeyCode()==KeyEvent.VK_D) {
+		  keyD = e.getKeyCode();
+	  }
+	  
+  	
+  }
+  
   
   public UserInput getUserInput()
   { 
@@ -171,6 +193,14 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	  	                   mouseMovedX,mouseMovedY,mouseButton,keyPressed);
   }
   
+  public EnemyInput getEnemyInput()
+  { 
+    if(!newInput) return null;
+    
+    newInput = false;
+    return new EnemyInput(keyW, keyA, keyS, keyD);
+  }
+  
   
   // direct the Avatar
   public void command(A_GameObject av, UserInput input)
@@ -178,10 +208,34 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     Player avatar = (Player)av;
     avatar.setDestination(input.mousePressedX, input.mousePressedY);    
   }
+  
+  
+  public void enemycommand(A_GameObject ev, EnemyInput einput)
+  {
+    enemy_KI enemy = (enemy_KI)ev;
+    if(einput.keyW == keyW) {
+    	enemy.setDestination(enemy.x, enemy.y++);  
+    }else if(einput.keyA == keyA) {
+    	enemy.setDestination(enemy.x--, enemy.y); 
+    }else if(einput.keyS == keyS) {
+    	enemy.setDestination(enemy.x, enemy.y--); 
+    }else if(einput.keyD == keyD) {
+    	enemy.setDestination(enemy.x++, enemy.y); 
+    }
+  }
 
   
   public void mouseEntered(MouseEvent evt){}
   public void mouseExited(MouseEvent evt){}
   public void mouseClicked(MouseEvent evt){}
   public void mouseReleased(MouseEvent evt){}
+
+  
+  
+@Override
+public void keyTyped(KeyEvent e) {}
+
+
+@Override
+public void keyReleased(KeyEvent e) {}
 }
