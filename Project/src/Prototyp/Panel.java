@@ -34,7 +34,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
                   mouseMovedX, mouseMovedY, mouseButton;
   private char    keyPressed;
   
-  private int	keyW, keyA, keyS, keyD;
+  //private int	keyW, keyA, keyS, keyD;
 	
   // GraphicsSystem variables
   //
@@ -156,7 +156,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	//Fog
 	if(true) {
 		Area a = new Area(new Rectangle(0, 0, 1600, 900));
-		a.subtract(new Area(new Ellipse2D.Double(x-28, y-28, r*4, r*4)));
+		a.subtract(new Area(new Ellipse2D.Double(x-38, y-38, r*5, r*5)));
 		g2d.fill(a);
 	}
 
