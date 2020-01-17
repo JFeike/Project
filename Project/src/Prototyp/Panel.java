@@ -5,6 +5,8 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 import java.awt.event.*;
+import java.awt.geom.Area;
+import java.awt.geom.Ellipse2D;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -18,6 +20,11 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
   int w = (int) 1600;
   int h = (int) 900;
+  int tileHeight = 200;
+  int tileWidth = 200;
+  
+  BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
+  BufferedImage fog = ImageIO.read(new File("src/resources/clouds.png")); 
   
   // UserInput variables
   //
@@ -53,18 +60,17 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   }
   
   public void clear()
-  { graphics.setColor(Color.LIGHT_GRAY);
+  { graphics.setColor(Color.black);
     graphics.fillRect(0, 0, w, h);
   }
   
   public final void draw(A_GameObject dot) throws IOException
   {
-	BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
+	  
+	Graphics2D g2d = (Graphics2D) graphics;
 	
-	int tileHeight = 200;
-	int tileWidth = 200;
-	int h = (int) 900;
-	int w = (int) 1600;
+	
+	
     for (int y = 0; y < h; y += tileHeight) {
         for (int x = 0; x < w; x += tileWidth) {
 	graphics.drawImage(tile,x,y,null); } }
@@ -142,10 +148,19 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	
 	
 	
+	//Fog
+	if(true) {
+		Area a = new Area(new Rectangle(0, 0, 1600, 900));
+		a.subtract(new Area(new Ellipse2D.Double(x-28, y-28, r*4, r*4)));
+		g2d.fill(a);
+	}
+
+	
 	graphics.setColor(COLOR_DOT);
 	graphics.fillOval(x, y, r, r);
 	graphics.setColor(Color.BLACK);
 	graphics.drawOval(x,y,r,r);
+	
 	
 	
   	//int xe = (int)dot.x+1250;
