@@ -24,6 +24,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   int tileWidth = 200;
   
   BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
+  BufferedImage ufo = ImageIO.read(new File("src/resources/ufo.png"));
   BufferedImage fog = ImageIO.read(new File("src/resources/clouds.png")); 
   
   // UserInput variables
@@ -54,6 +55,9 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	imageBuffer = graphicsConf.createCompatibleImage(
 			        this.getWidth(), this.getHeight());	 
 	graphics = imageBuffer.getGraphics();
+	
+	
+	
 
 	// initialize Listeners
 	this.addMouseListener(this);
@@ -67,8 +71,10 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   public final void draw(A_GameObject dot) throws IOException
   {
 	  
+		  
+		
+	  
 	Graphics2D g2d = (Graphics2D) graphics;
-	
 	
 	
     for (int y = 0; y < h; y += tileHeight) {
@@ -139,13 +145,12 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     // MAZE END
     
     // UFO
-    BufferedImage ufo = ImageIO.read(new File("src/resources/ufo.png"));
+    
     graphics.drawImage(ufo,1250,300,null);
     
 	int x = (int)dot.x-RADIUS_DOT;
 	int y = (int)dot.y-RADIUS_DOT;
 	int r = RADIUS_DOT*2;
-	
 	
 	
 	//Fog
@@ -160,6 +165,8 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	graphics.fillOval(x, y, r, r);
 	graphics.setColor(Color.BLACK);
 	graphics.drawOval(x,y,r,r);
+	
+	
 	
 	
 	
