@@ -61,15 +61,17 @@ public class World
 	  }
 	  
 	  
-	  enemyInput = inputSystem.getEnemyInput();
-	  if(enemyInput!=null)
-	  { inputSystem.enemycommand(enemyDot, enemyInput);
-	  }
+	  //enemyInput = inputSystem.getEnemyInput();
+	  //if(enemyInput!=null)
+	  //{ inputSystem.enemycommand(enemyDot, enemyInput);
+	  //}
 	  
 	  // Player
 	  Rectangle p = new Rectangle((int)userDot.x, (int)userDot.y, 20, 20);
 	// enemy
 	  Rectangle e = new Rectangle((int)enemyDot.x, (int)enemyDot.y, 20, 20);
+	  //UFO
+	  Rectangle u = new Rectangle(1250, 300, 50, 50);
 	  // Maze
 	  // Rectangle x_linksoben, y_linksoben, Breite, Höhe
 	  Rectangle maze1 = new Rectangle(0,50, 150,30);
@@ -179,6 +181,10 @@ public class World
 			userDot.x = 20;
 			userDot.y = 20;
 			userDot.setDestination(20, 20);
+		}
+		
+		if(p.intersects(u)) {
+			System.out.println("Gewonnen!");
 		}
 		
 		

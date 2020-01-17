@@ -11,7 +11,7 @@ import javax.swing.*;
 
 import Prototyp.A_GraphicSystem;
 
-public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, MouseListener, KeyListener
+public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, MouseListener
 {
   // ...ok...
   private static final long serialVersionUID = 1L;
@@ -57,7 +57,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     graphics.fillRect(0, 0, w, h);
   }
   
-  public void draw(A_GameObject dot) throws IOException
+  public final void draw(A_GameObject dot) throws IOException
   {
 	BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
 	
@@ -140,15 +140,23 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	int y = (int)dot.y-RADIUS_DOT;
 	int r = RADIUS_DOT*2;
 	
+	
+	
 	graphics.setColor(COLOR_DOT);
 	graphics.fillOval(x, y, r, r);
 	graphics.setColor(Color.BLACK);
 	graphics.drawOval(x,y,r,r);
 	
-	graphics.setColor(Color.red);
-	graphics.fillOval(1250, 300, r, r);
+	
+  	//int xe = (int)dot.x+1250;
+	//int ye = (int)dot.y+300;
+	//graphics.setColor(Color.red);
+	//graphics.fillOval(xe, ye, r, r);
+  	//dot.movedown(50, graphics);
+	
 	
   }
+
   
   
   public void redraw()
@@ -167,21 +175,21 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   }  
   
   @Override
-  public void keyPressed(KeyEvent e) {
+  //public void keyPressed(KeyEvent e) {
   	// TODO Auto-generated method stub
-	  newInput = true;
-	  if(e.getKeyCode()==KeyEvent.VK_W) {
-		  keyW = e.getKeyCode();
-	  }else if(e.getKeyCode()==KeyEvent.VK_A) {
-		  keyA = e.getKeyCode();
-	  }else if(e.getKeyCode()==KeyEvent.VK_S) {
-		  keyS = e.getKeyCode();
-	  }else if(e.getKeyCode()==KeyEvent.VK_D) {
-		  keyD = e.getKeyCode();
-	  }
+	 // newInput = true;
+	 // if(e.getKeyCode()==KeyEvent.VK_W) {
+		//  keyW = e.getKeyCode();
+	  //}else if(e.getKeyCode()==KeyEvent.VK_A) {
+	//	  keyA = e.getKeyCode();
+	 // }else if(e.getKeyCode()==KeyEvent.VK_S) {
+		//  keyS = e.getKeyCode();
+	  //}else if(e.getKeyCode()==KeyEvent.VK_D) {
+	//	  keyD = e.getKeyCode();
+	//  }
 	  
   	
-  }
+  //}
   
   
   public UserInput getUserInput()
@@ -193,13 +201,13 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	  	                   mouseMovedX,mouseMovedY,mouseButton,keyPressed);
   }
   
-  public EnemyInput getEnemyInput()
-  { 
-    if(!newInput) return null;
+  //public EnemyInput getEnemyInput()
+  //{ 
+  //if(!newInput) return null;
     
-    newInput = false;
-    return new EnemyInput(keyW, keyA, keyS, keyD);
-  }
+  //newInput = false;
+  //return new EnemyInput(keyW, keyA, keyS, keyD);
+  //}
   
   
   // direct the Avatar
@@ -210,19 +218,19 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   }
   
   
-  public void enemycommand(A_GameObject ev, EnemyInput einput)
-  {
-    enemy_KI enemy = (enemy_KI)ev;
-    if(einput.keyW == keyW) {
-    	enemy.setDestination(enemy.x, enemy.y++);  
-    }else if(einput.keyA == keyA) {
-    	enemy.setDestination(enemy.x--, enemy.y); 
-    }else if(einput.keyS == keyS) {
-    	enemy.setDestination(enemy.x, enemy.y--); 
-    }else if(einput.keyD == keyD) {
-    	enemy.setDestination(enemy.x++, enemy.y); 
-    }
-  }
+  //public void enemycommand(A_GameObject ev, EnemyInput einput)
+  //{
+    //enemy_KI enemy = (enemy_KI)ev;
+    //if(einput.keyW == keyW) {
+    	//enemy.setDestination(enemy.x, enemy.y++);  
+    //}else if(einput.keyA == keyA) {
+    	//enemy.setDestination(enemy.x--, enemy.y); 
+    //}else if(einput.keyS == keyS) {
+    	//enemy.setDestination(enemy.x, enemy.y--); 
+    //}else if(einput.keyD == keyD) {
+    	//enemy.setDestination(enemy.x++, enemy.y); 
+    //}
+  //}
 
   
   public void mouseEntered(MouseEvent evt){}
@@ -230,12 +238,36 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   public void mouseClicked(MouseEvent evt){}
   public void mouseReleased(MouseEvent evt){}
 
+@Override
+public EnemyInput getEnemyInput() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public void enemycommand(A_GameObject enemyObject, EnemyInput enemyInput) {
+	// TODO Auto-generated method stub
+	
+}
+
   
   
-@Override
-public void keyTyped(KeyEvent e) {}
+//@Override
+//public void keyTyped(KeyEvent e) {}
 
 
-@Override
-public void keyReleased(KeyEvent e) {}
+//@Override
+//public void keyReleased(KeyEvent e) {}
+
+//@Override
+//public EnemyInput getEnemyInput() {
+	// TODO Auto-generated method stub
+	//return null;
+//}
+
+//@Override
+//public void enemycommand(A_GameObject enemyObject, EnemyInput enemyInput) {
+	// TODO Auto-generated method stub
+	
+//}
 }

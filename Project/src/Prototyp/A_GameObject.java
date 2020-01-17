@@ -1,9 +1,10 @@
 package Prototyp;
 
+import java.awt.Graphics;
+
 public abstract class A_GameObject 
 {
-  // yes, public  :(
-  //
+  
   public double x,y;
   public double speed = 0;
   public double alfa  = 0;
@@ -15,4 +16,8 @@ public abstract class A_GameObject
 	 x += Math.cos(alfa)*speed*diffSeconds/2;
 	 y += Math.sin(alfa)*speed*diffSeconds/2;   	  
   }
+  
+  
+  
+	
 }
