@@ -1,6 +1,8 @@
 package Prototyp;
 
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Label;
 import java.awt.Toolkit;
 import java.io.IOException;
 
@@ -13,7 +15,9 @@ public class Frame extends JFrame
   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
   int w = (int) 1600;
   int h = (int) 900;
-	
+  static Label battery = new Label("Batteries: " + Panel.batterycount + " / 3");
+  static Label health = new Label("Health: " + Panel.healthcount);	
+  
   private Panel panel = null;	
 
   public Frame() throws IOException
@@ -22,6 +26,13 @@ public class Frame extends JFrame
 	this.setResizable(false);
 	this.setTitle("Alien Invasion");								
 	panel = new Panel();
+	panel.setLayout(null);
+	battery.setBounds(1470, 10, 120, 25);
+	health.setBounds(1470,35, 120, 25);
+	battery.setFont(new Font("Serif", Font.PLAIN, 20));
+	health.setFont(new Font("Serif", Font.PLAIN, 20));
+	panel.add(battery);
+	panel.add(health);
 	this.setContentPane(panel);
 	
 	JOptionPane.showMessageDialog(this,

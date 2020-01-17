@@ -60,18 +60,36 @@ public class World
 	  { inputSystem.command(userDot, userInput);
 	  }
 	  
+	  // wenn health = 0
+	  if(Panel.healthcount == 0 ) {
+		  System.out.println("Du hast das Spiel verloren!");
+		  System.exit(0);
+		  
+	  }
 	  
 	  //enemyInput = inputSystem.getEnemyInput();
 	  //if(enemyInput!=null)
 	  //{ inputSystem.enemycommand(enemyDot, enemyInput);
 	  //}
 	  
+	  Rectangle bat1 = new Rectangle(Panel.bat1X, Panel.bat1Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat2 = new Rectangle(Panel.bat2X, Panel.bat2Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat3 = new Rectangle(Panel.bat3X, Panel.bat3Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat4 = new Rectangle(Panel.bat4X, Panel.bat4Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat5 = new Rectangle(Panel.bat5X, Panel.bat5Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat6 = new Rectangle(Panel.bat6X, Panel.bat6Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat7 = new Rectangle(Panel.bat7X, Panel.bat7Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat8 = new Rectangle(Panel.bat8X, Panel.bat8Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat9 = new Rectangle(Panel.bat9X, Panel.bat9Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  Rectangle bat10 = new Rectangle(Panel.bat10X, Panel.bat10Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+	  
+	  
 	  // Player
 	  Rectangle p = new Rectangle((int)userDot.x, (int)userDot.y, 20, 20);
 	// enemy
 	  Rectangle e = new Rectangle((int)enemyDot.x, (int)enemyDot.y, 20, 20);
 	  //UFO
-	  Rectangle u = new Rectangle(1250, 300, 50, 50);
+	  Rectangle u = new Rectangle(1250, 300, Panel.ufo.getWidth(), Panel.ufo.getHeight());
 	  // Maze
 	  // Rectangle x_linksoben, y_linksoben, Breite, Höhe
 	  Rectangle maze1 = new Rectangle(0,50, 150,30);
@@ -181,10 +199,65 @@ public class World
 			userDot.x = 20;
 			userDot.y = 20;
 			userDot.setDestination(20, 20);
+			Panel.healthcount -= 1;
+			Frame.health.setText("Health: " + Panel.healthcount);
 		}
 		
-		if(p.intersects(u)) {
-			System.out.println("Gewonnen!");
+		if(p.intersects(u) && Panel.batterycount == 3) {
+			System.out.println("gewonnen!");
+		}
+		if(p.intersects(u) && Panel.batterycount < 3) {
+			System.out.println("Du brauchst noch mehr Batterien!");
+		}
+		if(p.intersects(bat1)) {
+			Panel.bat1Y = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat2)) {
+			Panel.batterycount += 1;
+			Panel.bat2Y = 10000;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat3)) {
+			Panel.bat3X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat4)) {
+			Panel.bat4X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat5)) {
+			Panel.bat5X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat6)) {
+			Panel.bat6X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat7)) {
+			Panel.bat7X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat8)) {
+			Panel.bat8X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat9)) {
+			Panel.bat9X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(bat10)) {
+			Panel.bat10X = 10000;
+			Panel.batterycount += 1;
+			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
 		
 		

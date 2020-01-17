@@ -22,10 +22,48 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   int h = (int) 900;
   int tileHeight = 200;
   int tileWidth = 200;
+  int rdm1 = (int) (Math.random() *10)+1;
+  int rdm2 = (int) (Math.random() *10)+1;
+  int rdm3 = (int) (Math.random() *10)+1;
+  static int batterycount = 0;
+  static int healthcount = 3;
   
   BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
-  BufferedImage ufo = ImageIO.read(new File("src/resources/ufo.png"));
   BufferedImage fog = ImageIO.read(new File("src/resources/clouds.png")); 
+  static BufferedImage battery1;
+  static BufferedImage battery2;
+  static BufferedImage battery3;
+  static BufferedImage battery4;
+  static BufferedImage battery5;
+  static BufferedImage battery6;
+  static BufferedImage battery7;
+  static BufferedImage battery8;
+  static BufferedImage battery9;
+  static BufferedImage battery10;
+  static BufferedImage ufo;
+  static int bat1X = 0; 
+  static int bat1Y = 800;
+  static int bat2X = 80;
+  static int bat2Y = 490;
+  static int bat3X = 840;
+  static int bat3Y = 340;
+  static int bat4X = 1150;
+  static int bat4Y = 30;
+  static int bat5X = 1045;
+  static int bat5Y = 40;
+  static int bat6X = 440;
+  static int bat6Y = 245;
+  static int bat7X = 1020;
+  static int bat7Y = 820;
+  static int bat8X = 1250;
+  static int bat8Y = 650;
+  static int bat9X = 790;
+  static int bat9Y = 640;
+  static int bat10X = 710;
+  static int bat10Y = 820;
+  static int r;
+  static int y;
+  static int x;
   
   // UserInput variables
   //
@@ -56,8 +94,28 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 			        this.getWidth(), this.getHeight());	 
 	graphics = imageBuffer.getGraphics();
 	
+	// unique batterylocs
+	  while(rdm1 == rdm2) {
+		  int rdm2 = (int) (Math.random() *10)+1;
+	  }
+	  while(rdm2 == rdm3 || rdm1== rdm3) {
+		  int rdm3 = (int) (Math.random() *10)+1;
+	  }
 	
-	
+	  // einlesen battery pngs
+	  try {
+	  battery1 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery2 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery3 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery4 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery5 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery6 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery7 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery8 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery9 = ImageIO.read(new File("src/resources/battery.png")); 
+	  battery10 = ImageIO.read(new File("src/resources/battery.png")); 
+	  ufo = ImageIO.read(new File("src/resources/ufo.png"));
+	  } catch (IOException e) {}
 
 	// initialize Listeners
 	this.addMouseListener(this);
@@ -148,9 +206,41 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     
     graphics.drawImage(ufo,1250,300,null);
     
-	int x = (int)dot.x-RADIUS_DOT;
-	int y = (int)dot.y-RADIUS_DOT;
-	int r = RADIUS_DOT*2;
+ // battery setzen
+    if(rdm1 == 1 || rdm2 == 1 || rdm3 == 1) {
+    	graphics.drawImage(battery1, bat1X, bat1Y, null);
+    }
+    if(rdm1 == 2 || rdm2 == 2 || rdm3 == 2) {
+    	graphics.drawImage(battery2, bat2X, bat2Y, null);
+    }
+    if(rdm1 == 3 || rdm2 == 3 || rdm3 == 3) {
+    	graphics.drawImage(battery3, bat3X, bat3Y, null);
+    }
+    if(rdm1 == 4 || rdm2 == 4 || rdm3 == 4) {
+    	graphics.drawImage(battery4, bat4X, bat4Y, null);
+    }
+    if(rdm1 == 5 || rdm2 == 5 || rdm3 == 5) {
+    	graphics.drawImage(battery5, bat5X, bat5Y, null);
+    }
+    if(rdm1 == 6 || rdm2 == 6 || rdm3 == 6) {
+    	graphics.drawImage(battery6, bat6X, bat6Y, null);
+    }
+    if(rdm1 == 7 || rdm2 == 7 || rdm3 == 7) {
+    	graphics.drawImage(battery7, bat7X, bat7Y, null);
+    }
+    if(rdm1 == 8 || rdm2 == 8 || rdm3 == 8) {
+    	graphics.drawImage(battery8, bat8X, bat8Y, null);
+    }
+    if(rdm1 == 9 || rdm2 == 9 || rdm3 == 9) {
+    	graphics.drawImage(battery9, bat9X, bat9Y, null);
+    }
+    if(rdm1 == 10 || rdm2 == 10 || rdm3 == 10) {
+    	graphics.drawImage(battery10, bat10X, bat10Y, null);
+    }
+    
+	x = (int)dot.x-RADIUS_DOT;
+	y = (int)dot.y-RADIUS_DOT;
+	r = RADIUS_DOT*2;
 	
 	
 	//Fog
