@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Prototyp.A_GraphicSystem;
+import Prototyp.Panel;
 
 public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, MouseListener
 {
@@ -25,10 +26,25 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   int rdm1 = (int) (Math.random() *10)+1;
   int rdm2 = (int) (Math.random() *10)+1;
   int rdm3 = (int) (Math.random() *10)+1;
+  int rdm4 = (int) (Math.random() *10)+1;
   static int batterycount = 0;
   static int healthcount = 3;
   static int fogxy = 70;
   static int fogr = 8;
+  static int help;
+  static Rectangle flash = new Rectangle(10000,10000,10,10);
+  static Rectangle bat1 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat2 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat3 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat4 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat5 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat6 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat7 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat8 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat9 = new Rectangle(10000,10000,10,10);
+  static Rectangle bat10 = new Rectangle(10000,10000,10,10);
+  
+
   
   BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
   BufferedImage fog = ImageIO.read(new File("src/resources/clouds.png")); 
@@ -42,6 +58,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   static BufferedImage battery8;
   static BufferedImage battery9;
   static BufferedImage battery10;
+  static BufferedImage flashlight;
   static BufferedImage ufo;
   static int bat1X = 0; 
   static int bat1Y = 800;
@@ -103,6 +120,9 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	  while(rdm2 == rdm3 || rdm1== rdm3) {
 		  int rdm3 = (int) (Math.random() *10)+1;
 	  }
+	  while(rdm1 == rdm4 || rdm2 == rdm4 || rdm3 == rdm4) {
+		  int rdm4 = (int) (Math.random() *10)+1;
+	  }
 	
 	  // einlesen battery pngs
 	  try {
@@ -117,6 +137,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	  battery9 = ImageIO.read(new File("src/resources/battery.png")); 
 	  battery10 = ImageIO.read(new File("src/resources/battery.png")); 
 	  ufo = ImageIO.read(new File("src/resources/ufo.png"));
+	  flashlight = ImageIO.read(new File("src/resources/flashlight.png"));
 	  } catch (IOException e) {}
 
 	// initialize Listeners
@@ -203,6 +224,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
     
     
     // MAZE END
+
     
     // UFO
     
@@ -211,34 +233,96 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
  // battery setzen
     if(rdm1 == 1 || rdm2 == 1 || rdm3 == 1) {
     	graphics.drawImage(battery1, bat1X, bat1Y, null);
+    	bat1 = new Rectangle(Panel.bat1X, Panel.bat1Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 2 || rdm2 == 2 || rdm3 == 2) {
     	graphics.drawImage(battery2, bat2X, bat2Y, null);
+    	bat2 = new Rectangle(Panel.bat2X, Panel.bat2Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 3 || rdm2 == 3 || rdm3 == 3) {
     	graphics.drawImage(battery3, bat3X, bat3Y, null);
+    	bat3 = new Rectangle(Panel.bat3X, Panel.bat3Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 4 || rdm2 == 4 || rdm3 == 4) {
     	graphics.drawImage(battery4, bat4X, bat4Y, null);
+    	bat4 = new Rectangle(Panel.bat4X, Panel.bat4Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 5 || rdm2 == 5 || rdm3 == 5) {
     	graphics.drawImage(battery5, bat5X, bat5Y, null);
+    	bat5 = new Rectangle(Panel.bat5X, Panel.bat5Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 6 || rdm2 == 6 || rdm3 == 6) {
     	graphics.drawImage(battery6, bat6X, bat6Y, null);
+    	bat6 = new Rectangle(Panel.bat6X, Panel.bat6Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 7 || rdm2 == 7 || rdm3 == 7) {
     	graphics.drawImage(battery7, bat7X, bat7Y, null);
+    	bat7 = new Rectangle(Panel.bat7X, Panel.bat7Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 8 || rdm2 == 8 || rdm3 == 8) {
     	graphics.drawImage(battery8, bat8X, bat8Y, null);
+    	bat8 = new Rectangle(Panel.bat8X, Panel.bat8Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 9 || rdm2 == 9 || rdm3 == 9) {
     	graphics.drawImage(battery9, bat9X, bat9Y, null);
+    	bat9 = new Rectangle(Panel.bat9X, Panel.bat9Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
     if(rdm1 == 10 || rdm2 == 10 || rdm3 == 10) {
     	graphics.drawImage(battery10, bat10X, bat10Y, null);
+    	bat10 = new Rectangle(Panel.bat10X, Panel.bat10Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
     }
+    if(rdm4 == 1) {
+    	graphics.drawImage(flashlight, bat1X, bat1Y, null);
+    	flash = new Rectangle(bat1X, bat1Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 1;
+    }
+    if(rdm4 == 2) {
+    	graphics.drawImage(flashlight, bat2X, bat2Y, null);
+    	flash = new Rectangle(bat2X, bat2Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 2;
+    }
+    if(rdm4 == 3) {
+    	graphics.drawImage(flashlight, bat3X, bat3Y, null);
+    	flash = new Rectangle(bat3X, bat3Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 3;
+    }
+    if(rdm4 == 4) {
+    	graphics.drawImage(flashlight, bat4X, bat4Y, null);
+    	flash = new Rectangle(bat4X, bat4Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 4;
+    }
+    if(rdm4 == 5) {
+    	graphics.drawImage(flashlight, bat5X, bat5Y, null);
+    	flash = new Rectangle(bat5X, bat5Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 5;
+    }
+    if(rdm4 == 6) {
+    	graphics.drawImage(flashlight, bat6X, bat6Y, null);
+    	flash = new Rectangle(bat6X, bat6Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 6;
+    }
+    if(rdm4 == 7) {
+    	graphics.drawImage(flashlight, bat7X, bat7Y, null);
+    	flash = new Rectangle(bat7X, bat7Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 7;
+    }
+    if(rdm4 == 8) {
+    	graphics.drawImage(flashlight, bat8X, bat8Y, null);
+    	flash = new Rectangle(bat8X, bat8Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 8;
+    }
+    if(rdm4 == 9) {
+    	graphics.drawImage(flashlight, bat9X, bat9Y, null);
+    	flash = new Rectangle(bat9X, bat9Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 9;
+    }
+    if(rdm4 == 10) {
+    	graphics.drawImage(flashlight, bat10X, bat10Y, null);
+    	flash = new Rectangle(bat10X, bat10Y, flashlight.getWidth(), flashlight.getHeight());
+    	help = 10;
+    }
+    
+    
     
 	x = (int)dot.x-RADIUS_DOT;
 	y = (int)dot.y-RADIUS_DOT;

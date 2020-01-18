@@ -35,6 +35,8 @@ public class World
   
   private Wall wall;
   
+
+  
   
   public void init() throws IOException
   {
@@ -76,16 +78,9 @@ public class World
 	  //{ inputSystem.enemycommand(enemyDot, enemyInput);
 	  //}
 	  
-	  Rectangle bat1 = new Rectangle(Panel.bat1X, Panel.bat1Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat2 = new Rectangle(Panel.bat2X, Panel.bat2Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat3 = new Rectangle(Panel.bat3X, Panel.bat3Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat4 = new Rectangle(Panel.bat4X, Panel.bat4Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat5 = new Rectangle(Panel.bat5X, Panel.bat5Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat6 = new Rectangle(Panel.bat6X, Panel.bat6Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat7 = new Rectangle(Panel.bat7X, Panel.bat7Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat8 = new Rectangle(Panel.bat8X, Panel.bat8Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat9 = new Rectangle(Panel.bat9X, Panel.bat9Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
-	  Rectangle bat10 = new Rectangle(Panel.bat10X, Panel.bat10Y, Panel.battery1.getWidth(), Panel.battery1.getHeight());
+
+	  
+
 	  
 	  
 	  // Player
@@ -209,63 +204,102 @@ public class World
 		
 		if(p.intersects(u) && Panel.batterycount == 3) {
 			System.out.println("gewonnen!");
+			Panel.fogr=100000;
 			JOptionPane.showMessageDialog(null,
 				    Frame.win,
 				    "Alien Crash",
 				    JOptionPane.PLAIN_MESSAGE);
+			System.exit(0);
 		}
+		
 		if(p.intersects(u) && Panel.batterycount < 3) {
 			System.out.println("Du brauchst noch mehr Batterien!");
 		}
-		if(p.intersects(bat1)) {
+		if(p.intersects(Panel.bat1)) {
 			Panel.bat1Y = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat2)) {
+		if(p.intersects(Panel.bat2)) {
 			Panel.batterycount += 1;
 			Panel.bat2Y = 10000;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat3)) {
+		if(p.intersects(Panel.bat3)) {
 			Panel.bat3X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat4)) {
+		if(p.intersects(Panel.bat4)) {
 			Panel.bat4X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat5)) {
+		if(p.intersects(Panel.bat5)) {
 			Panel.bat5X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat6)) {
+		if(p.intersects(Panel.bat6)) {
 			Panel.bat6X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat7)) {
+		if(p.intersects(Panel.bat7)) {
 			Panel.bat7X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat8)) {
+		if(p.intersects(Panel.bat8)) {
 			Panel.bat8X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat9)) {
+		if(p.intersects(Panel.bat9)) {
 			Panel.bat9X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
 		}
-		if(p.intersects(bat10)) {
+		if(p.intersects(Panel.bat10)) {
 			Panel.bat10X = 10000;
 			Panel.batterycount += 1;
 			Frame.battery.setText("Batteries: " + Panel.batterycount + " / 3");
+		}
+		if(p.intersects(Panel.flash)) {
+			Panel.fogr = 12;
+			Panel.fogxy = 110;
+			if(Panel.help == 1) {
+				Panel.bat1X = 100000;
+			}
+			if(Panel.help == 2) {
+				Panel.bat2X = 100000;
+			}
+			if(Panel.help == 3) {
+				Panel.bat3X = 100000;
+			}
+			if(Panel.help == 4) {
+				Panel.bat4X = 100000;
+			}
+			if(Panel.help == 5) {
+				Panel.bat5X = 100000;
+			}
+			if(Panel.help == 6) {
+				Panel.bat6X = 100000;
+			}
+			if(Panel.help == 7) {
+				Panel.bat7X = 100000;
+			}
+			if(Panel.help == 8) {
+				Panel.bat8X = 100000;
+			}
+			if(Panel.help == 9) {
+				Panel.bat9X = 100000;
+			}
+			if(Panel.help == 10) {
+				Panel.bat10X = 100000;
+			}
+			
+			
 		}
 		
 		
