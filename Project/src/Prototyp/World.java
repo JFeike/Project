@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 public class World
 {
@@ -62,7 +63,10 @@ public class World
 	  
 	  // wenn health = 0
 	  if(Panel.healthcount == 0 ) {
-		  System.out.println("Du hast das Spiel verloren!");
+			JOptionPane.showMessageDialog(null,
+				    Frame.lose,
+				    "Alien Crash",
+				    JOptionPane.PLAIN_MESSAGE);
 		  System.exit(0);
 		  
 	  }
@@ -205,6 +209,10 @@ public class World
 		
 		if(p.intersects(u) && Panel.batterycount == 3) {
 			System.out.println("gewonnen!");
+			JOptionPane.showMessageDialog(null,
+				    Frame.win,
+				    "Alien Crash",
+				    JOptionPane.PLAIN_MESSAGE);
 		}
 		if(p.intersects(u) && Panel.batterycount < 3) {
 			System.out.println("Du brauchst noch mehr Batterien!");

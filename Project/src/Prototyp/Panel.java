@@ -27,6 +27,8 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
   int rdm3 = (int) (Math.random() *10)+1;
   static int batterycount = 0;
   static int healthcount = 3;
+  static int fogxy = 70;
+  static int fogr = 8;
   
   BufferedImage tile = ImageIO.read(new File("src/resources/Background.png"));  
   BufferedImage fog = ImageIO.read(new File("src/resources/clouds.png")); 
@@ -246,7 +248,7 @@ public class Panel extends JPanel implements A_GraphicSystem, A_InputSystem, Mou
 	//Fog
 	if(true) {
 		Area a = new Area(new Rectangle(0, 0, 1600, 900));
-		a.subtract(new Area(new Ellipse2D.Double(x-38, y-38, r*5, r*5)));
+		a.subtract(new Area(new Ellipse2D.Double(x-fogxy, y-fogxy, r*fogr, r*fogr)));
 		g2d.fill(a);
 	}
 
